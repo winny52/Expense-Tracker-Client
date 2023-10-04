@@ -1,6 +1,7 @@
 import React from 'react';
 import image from './image.jpg'; 
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 const LandingPage = () => {
     return (
         <div className="bg-blue-200 h-screen flex flex-col">
@@ -16,7 +17,7 @@ const LandingPage = () => {
 
 
                 </div>
-                <button className="bg-blue-800 text-white px-8 py-4 rounded hover:bg-blue-900">GET STARTED</button>
+                <Link to ={"/signup"} className="bg-blue-800 text-white px-8 py-4 rounded hover:bg-blue-900">GET STARTED</Link>
 
                 </div>
                 <img src={image} alt="Illustration" className="w-5/12 rounded-full" />
@@ -26,4 +27,4 @@ const LandingPage = () => {
     );
 }
 
-export default LandingPage;
+export default LandingPage;     
