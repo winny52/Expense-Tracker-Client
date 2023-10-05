@@ -10,7 +10,7 @@ function Navbar() {
           <Link to="/contact" className="text-blue-500 text-2xl ">Contact</Link>
         </li>
         <li>
-          <Link to="/login" className="bg-blue-800 text-white px-8 py-4 rounded hover:bg-blue-900">Login</Link>
+          <Link to="/login" className="bg-blue-800 text-white px-6 py-3 rounded font-bold hover:bg-blue-900">Login</Link>
         </li>
       </ul>
     </nav>
