@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ContactPage = () => {
     return (
         <div className="bg-blue-200 h-screen flex flex-col">
-        <div>
+        <div className='ml-auto mr-12 mt-9 text-white text-2xl font-bold px-5 py-3 rounded-lg bg-blue-800'>
                 <Link to={"/"}>Back</Link>
                 </div>
             <div className="flex justify-center p-4">
@@ -12,7 +12,7 @@ const ContactPage = () => {
                 
             </div>
             <div className="flex-grow flex items-center justify-center text-black text-black">
-                <div className="lg:w-1/2 p-8">
+                <div className="lg:w-1/2 p-3">
                     <h1 className="text-4xl mb-4">Contact Us</h1>
                     <p className="text-lg mb-4">
                         Feel free to get in touch with us if you have any questions, feedback, or inquiries about our Expense Tracker.
