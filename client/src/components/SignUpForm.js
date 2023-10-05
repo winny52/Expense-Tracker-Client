@@ -20,9 +20,8 @@ function Signup() {
                 <label htmlFor="password" className="block text-blue-200 mb-4">Password</label>
                 <input className=" mb-4 h-10 p-2 bg-lightblue text-darkblue outline-none rounded" type="password" name="password" id="password" />
             </div>
-            <input className="p-2 w-40 mt-2rem mx-auto font-semibold text-darkblue rounded bg-blue-200" type="submit" value="Sign Up" />
-            <p className="mx-auto mt-2 font-bold text-white"> Already have an account?
-            {/* <Link to="/login" className="text-darkblue">Log In</Link> */}
+            <input className="p-2 w-40 mt-2rem mx-auto font-semibold text-darkblue rounded bg-blue-200 hover:bg-blue-400" type="submit" value="Sign Up" />
+            <p className="mx-auto my-3 font-semibold text-black">Already have an account? <Link to ={"/login"} className="text-blue-200">Login</Link>
             </p>
         </div>
     </div>

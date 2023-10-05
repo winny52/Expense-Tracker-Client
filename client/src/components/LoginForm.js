@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Login() {
     return (
       <div className="h-screen w-full bg-blue-200 flex items-center pt-9rem">
@@ -12,8 +14,9 @@ function Login() {
             <label htmlFor="password" className="block text-blue-200 mb-4">Password</label>
             <input className=" mb-4 h-10 p-2 bg-lightblue text-darkblue outline-none rounded" type="password" name="password" id="password" />
           </div>
-          <input className="p-2 w-40 mt-2rem mx-auto font-bold text-darkblue rounded bg-blue-200" type="submit" value="Log In" />
-          <p className="mx-auto font-bold text-white">Don't have an account? <span className="text-darkblue">Sign up</span></p>
+          <input className="p-2 w-40 mt-2rem mx-auto font-bold text-darkblue rounded bg-blue-200 hover:bg-blue-400" type="submit" value="Log In" />
+          <p className="mx-auto my-3 font-semibold text-black">Don't have an account? <Link to ={"/signup"} className="text-blue-200 rounded">Sign up</Link>
+</p>
         
         </div>
 
