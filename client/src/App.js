@@ -1,10 +1,9 @@
-import ExpenseForm from "./components/ExpenseForm";
+import Signup from "./components/SignUpForm";
 import './App.css';
 
 function App() {
   return (
     <div className="App bg-blue-100">
-      <ExpenseForm />
     </div>
   );
 }
