@@ -11,7 +11,7 @@ import Homepage from './components/homepage';
 import ExpenseForm from './components/ExpenseForm';
 function App() {
 
-  const { token, setToken } = useToken();
+  const { token, removeToken, setToken } = useToken();
 
   return (
     <Router>
@@ -27,7 +27,7 @@ function App() {
         :(
           <div>
         <Routes>
-          <Route path='/homepage' element={<Homepage/>}/>
+          <Route path='/homepage' element={<Homepage setToken={setToken} removeToken={removeToken}/>}/>
           <Route path='/analysis' element={<Analysis/>}/>
           <Route path='/expenseform' element={<ExpenseForm/>}/>
         </Routes>
