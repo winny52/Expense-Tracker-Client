@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
 
-function Login() {
+function Login({setToken}) {
 
     const [loginForm, setloginForm] = useState({
         email:"",
         password:""
     })
+
+    const navigate = useNavigate();
 
     function handleChange(e){
         const {value, name} = e.target
@@ -27,7 +29,11 @@ function Login() {
             }
         })
         .then((response) => {
-            console.log(response)
+            console.log(response);
+            setToken(response.data.access_token)
+            alert("Login Successful");
+            localStorage.setItem('email', loginForm.email)
+            navigate('/')
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response)
