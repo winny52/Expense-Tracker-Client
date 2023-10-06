@@ -9,7 +9,7 @@ function Menu(){
              <Link to={"/analysis"}className="rounded-md active:bg-blue-700 text-cyan-400 p-4 text-2xl hover:text-3xl">ANALYSIS</Link>
              </div>
              <br/><br/><br/><br/><br/><br/>
-             <Link className="bg-cyan-400 rounded-md p-2 hover:h-12 hover:text-lg ml-36">ADD EXPENSE</Link>
+             <Link to={"/expense add"} className="bg-cyan-400 rounded-md p-2 hover:h-12 hover:text-lg ml-36">ADD EXPENSE</Link>
              
         </div>
     )

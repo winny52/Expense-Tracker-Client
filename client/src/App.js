@@ -1,10 +1,16 @@
-import ExpenseForm from "./components/ExpenseForm";
+import React from 'react';
+import { Route,Routes } from 'react-router-dom';
 import './App.css';
-
+import Homepage from './homepage';
+import Analysis from './analysis';
 function App() {
   return (
-    <div className="App bg-blue-100">
-      <ExpenseForm />
+    <div>
+      <Routes>
+        <Route path='/homepage' element={<Homepage/>}/>
+        <Route path='/analysis' element={<Analysis/>}/>
+      </Routes>
+
     </div>
   );
 }
