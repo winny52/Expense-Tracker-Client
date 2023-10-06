@@ -16,14 +16,15 @@ function App() {
   return (
     <Router>
         {!token && token!=="" &&token!==undefined? 
-        <Routes></Routes>
+          <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginForm setToken={setToken} />} />
+          <Route path="/signup" element={<SignUpForm setToken={setToken} />} />
+          </Routes>
         // <LoginForm  setToken={setToken}/>  
         :(
           <div>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginForm setToken={setToken} />} />
-          <Route path="/signup" element={<SignUpForm setToken={setToken} />} />
           <Route path="/get-started" element={<SignUpForm />} />
           <Route path="/contact" element={<ContactPage />} /> 
           <Route path='/homepage' element={<Homepage/>}/>
