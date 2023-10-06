@@ -33,7 +33,7 @@ function Login({setToken}) {
             setToken(response.data.access_token)
             alert("Login Successful");
             localStorage.setItem('email', loginForm.email)
-            navigate('/')
+            navigate('/homepage')
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response)

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
 
 
@@ -10,6 +10,9 @@ function Signup() {
         email:"",
         password:""
     })
+
+    const navigate = useNavigate();
+
 
     function handleChange(e){
         const {value, name} = e.target
@@ -27,13 +30,16 @@ function Signup() {
                 password:signupForm.password
             }
         })
-        .then(res=> {console.log(res)})
+        .then(res=> {
+            console.log(res)
+            alert("Sign up Successful");
+            navigate('/login');
+        })  
         .catch(err=>{
             if (err.res) {
                 console.log(err.res);
             }
         })
-        alert("Sign up Successful");
         e.preventDefault();
     }
 
