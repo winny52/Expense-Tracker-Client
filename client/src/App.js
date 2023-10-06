@@ -17,16 +17,16 @@ function App() {
     <Router>
         {!token && token!=="" &&token!==undefined? 
           <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginForm setToken={setToken} />} />
-          <Route path="/signup" element={<SignUpForm setToken={setToken} />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<LoginForm setToken={setToken} />} />
+            <Route path="/signup" element={<SignUpForm setToken={setToken} />} />
+            <Route path="/contact" element={<ContactPage />} /> 
+            <Route path="/get-started" element={<SignUpForm />} />
           </Routes>
         // <LoginForm  setToken={setToken}/>  
         :(
           <div>
         <Routes>
-          <Route path="/get-started" element={<SignUpForm />} />
-          <Route path="/contact" element={<ContactPage />} /> 
           <Route path='/homepage' element={<Homepage/>}/>
           <Route path='/analysis' element={<Analysis/>}/>
           <Route path='/expenseform' element={<ExpenseForm/>}/>
