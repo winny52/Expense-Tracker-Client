@@ -28,11 +28,11 @@ function Chart({ entertain, transport, food, shopping, bill }) {
 
   return (
     <div className='text-lg ml-24'>
-      <div className='bg-blue-900 text-white p-2 mb-4 rounded-lg'>
+      <div className='bg-blue-400 text-white p-2 mb-4 rounded-lg'>
         <p>Amount spent this week</p>
         <p>Ksh {total}</p>
       </div>
-      <div className='bg-blue-900 w-96 h-96 rounded-md'>
+      <div className='bg-blue-400 w-96 h-96 rounded-md'>
         <Pie data={data} options={options} />
       </div>
     </div>

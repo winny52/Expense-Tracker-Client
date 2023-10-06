@@ -87,7 +87,7 @@ function Expenses({ user }) {
         shopping={shoppingSum}
         bill={billSum}
       />
-      <div className="ml-32">
+      <div className="ml-32 ">
         {expenses.map((expense) => (
           <Expense key={expense.id} expense={expense} />
         ))}

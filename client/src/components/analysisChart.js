@@ -94,7 +94,7 @@ function Analyse() {
     labels: ["Transport", "Food", "Bill", "Shopping", "Entertainment"],
     datasets: [
       {
-        label: "Categories",
+        label: "Total amount spent ",
         data: [
           transportSum,
           foodSum,
@@ -111,8 +111,8 @@ function Analyse() {
   const options = {};
 
   return (
-    <div className="w-3/5 bg-blue-200 ml-16">
-        <hi>hello</hi>
+    <div className="w-3/5 bg-blue-200 ml-16 p-8">
+        <h1 className="font-bold text-lg p-4 ">Total Amount Analysis</h1>
       <div>
         <Bar data={data} options={options}></Bar>
       </div>
