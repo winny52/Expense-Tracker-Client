@@ -1,11 +1,11 @@
 import React from "react";
 import Menu from "./menu";
 import Analyse from "./analysisChart";
-function Analysis(){
+function Analysis({user}){
     return(
         <div className="h-screen bg-blue-200 flex">
             <Menu/>
-            <Analyse/>
+            <Analyse user={user}/>
         </div>
 
     )
