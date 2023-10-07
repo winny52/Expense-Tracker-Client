@@ -37,8 +37,10 @@ function Menu({removeToken}) {
              <Link to={"/analysis"}className="rounded-md p-4 text-2xl hover:bg-blue-700 hover:text-White">ANALYSIS</Link>
              </div>
              <br/><br/><br/><br/><br/><br/>
-             <Link to={"/expenseform"} className="bg-blue-200 rounded-md p-2 hover:h-12 hover:text-lg ml-36">ADD EXPENSE</Link>
-             <button onClick={logout} className="bg-blue-200 rounded-md p-2 hover:bg-blue-700 hover:text-white ml-6 mt-20">LOG OUT</button>
+             <div className="flex flex-col">
+             <Link to={"/expenseform"} className="bg-blue-200 rounded-md p-2 hover:bg-blue-700 ml-36">ADD EXPENSE</Link>
+             <Link to={"/"} onClick={logout} className="bg-blue-200 rounded-md p-2 hover:bg-blue-700 hover:text-white ml-36 m-4 w-24">LOG OUT</Link>
+             </div>
              
         </div>
     )

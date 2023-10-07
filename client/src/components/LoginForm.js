@@ -1,52 +1,70 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from "axios"
+import axios from 'axios';
 
-function Login({setToken}) {
+function Login({ setToken,setUser }) {
+  const [loginForm, setLoginForm] = useState({
+    email: '',
+    password: '',
+  });
 
-    const [loginForm, setloginForm] = useState({
-        email:"",
-        password:""
+  const navigate = useNavigate();
+
+  function handleChange(e) {
+    const { value, name } = e.target;
+    setLoginForm((prevNote) => ({
+      ...prevNote,
+      [name]: value,
+    }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    axios({
+      method: 'POST',
+      url: 'http://localhost:5000/login',
+      data: {
+        email: loginForm.email,
+        password: loginForm.password,
+      },
     })
+      .then((response) => {
+        const { access_token } = response.data;
+        setToken(access_token);
+        localStorage.setItem('email', loginForm.email);
+        alert('Login Successful');
 
-    const navigate = useNavigate();
+        // After successful login, fetch user information
+        axios
+          .get(`http://localhost:5000/profile/${loginForm.email}`, {
+            headers: {
+              Authorization: `Bearer ${access_token}`,
+            },
+          })
+          .then((userInfoResponse) => {
+            const username=userInfoResponse.data.username
+            console.log(username)
+            setUser(username)
+            console.log('User Information:', userInfoResponse.data);
+          })
+          .catch((error) => {
+            console.error('Error fetching user data:', error);
+          });
 
-    function handleChange(e){
-        const {value, name} = e.target
-        setloginForm(prevNote => ({
-            ...prevNote, [name]:value
-        }))
-
-    }
-    
-    function handleSubmit(e){
-        axios({
-            method: "POST",
-            url:"http://localhost:5000/login",
-            data:{
-                email: loginForm.email,
-                password: loginForm.password
-            }
-        })
-        .then((response) => {
-            console.log(response);
-            setToken(response.data.access_token)
-            alert("Login Successful");
-            localStorage.setItem('email', loginForm.email)
-            navigate('/homepage')
-        }).catch((error) => {
-            if (error.response) {
-                console.log(error.response)
-                console.log(error.response.status)
-                console.log(error.response.headers)
-                    if (error.response.status === 401) {
-                        alert("Invalid credentials");
-                    }
-            }
-        })
-        e.preventDefault();
-
-    }
+        navigate('/homepage');
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+          if (error.response.status === 401) {
+            alert('Invalid credentials');
+          }
+        }
+      });
+  }
 
     return (
       <div className="h-screen w-full bg-blue-200 flex items-center pt-9rem">

@@ -2,8 +2,8 @@ import React from "react";
 import Menu from "./menu";
 import Expenses from "./expenseList";
 
-function Homepage({setToken, removeToken}){
-    const user = "user1"
+function Homepage({setToken, removeToken, user}){
+    
     return(
        <div className="bg-blue-200 flex h-screen">
         <Menu setToken={setToken} removeToken={removeToken}/>
