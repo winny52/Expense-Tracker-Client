@@ -17,8 +17,8 @@ ChartJS.register(
   Legend
 );
 
-function Analyse() {
-  const user = "user1";
+function Analyse({user}) {
+  
   const [transportSum, setTransportSum] = useState(0);
   const [foodSum, setFoodSum] = useState(0);
   const [billSum, setBillSum] = useState(0);
