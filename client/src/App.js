@@ -13,6 +13,11 @@ function App() {
 
   const { token, removeToken, setToken } = useToken();
   const[user,setUser]=useState("")
+  const [expenses, setExpenses] = useState([]);
+  function addExpense(newExpense){
+    const updateExpense = [...expenses,newExpense]
+    setExpenses(updateExpense)
+  }
   return (
     <Router>
         {!token && token!=="" &&token!==undefined? 
@@ -27,9 +32,9 @@ function App() {
         :(
           <div>
         <Routes>
-          <Route path='/homepage' element={<Homepage setToken={setToken} removeToken={removeToken} user={user}/>}/>
+          <Route path='/homepage' element={<Homepage setToken={setToken} removeToken={removeToken} user={user} setExpenses={setExpenses} expenses={expenses}/>}/>
           <Route path='/analysis' element={<Analysis user={user}/>}/>
-          <Route path='/expenseform' element={<ExpenseForm/>}/>
+          <Route path='/expenseform' element={<ExpenseForm addExpense={addExpense} user={user}/>}/>
         </Routes>
       </div>
         )

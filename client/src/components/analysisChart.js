@@ -17,8 +17,8 @@ ChartJS.register(
   Legend
 );
 
-function Analyse({user}) {
-  
+function Analyse({ user }) {
+
   const [transportSum, setTransportSum] = useState(0);
   const [foodSum, setFoodSum] = useState(0);
   const [billSum, setBillSum] = useState(0);
@@ -81,13 +81,12 @@ function Analyse({user}) {
           setBillSum(sumBill);
           setShoppingSum(sumShopping);
           setEntertainmentSum(sumEntertainment);
-        } else {
-          console.error("Data is not an array:", data);
         }
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+   
   }, [user]);
 
   const data = {
@@ -112,7 +111,7 @@ function Analyse({user}) {
 
   return (
     <div className="w-3/5 bg-blue-200 ml-16 p-8">
-        <h1 className="font-bold text-lg p-4 ">Total Amount Analysis</h1>
+      <h1 className="font-bold text-lg p-4 ">Total Amount Analysis</h1>
       <div>
         <Bar data={data} options={options}></Bar>
       </div>

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-function ExpenseForm({ addExpense }) {
+function ExpenseForm({ addExpense,user }) {
   const [formData, setFormData] = useState({
     name: '',
-    id: '',
     amount: '',
     date: '',
     category: '',
@@ -17,12 +16,18 @@ function ExpenseForm({ addExpense }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add the expense data to the list of expenses
-    addExpense(formData);
+    fetch(`http://127.0.0.1:5000/${user}/expenses`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData), // Send the form data
+})
+  .then((resp)=>resp.json)
+  .then((data)=>addExpense(data))
+    
 
     // Clear the form fields
     setFormData({
       name: '',
-      id: '',
       amount: '',
       date: '',
       category: '',
@@ -45,17 +50,7 @@ function ExpenseForm({ addExpense }) {
               className="w-full p-2 border rounded bg-blue-200 text-blue-800"
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="id" className="block text-blue-200 mb-2">ID</label>
-            <input
-              type="text"
-              id="id"
-              name="id"
-              value={formData.id}
-              onChange={handleChange}
-              className="w-full p-2 border rounded bg-blue-200 text-blue-800"
-            />
-          </div>
+        
           <div className="mb-4">
             <label htmlFor="amount" className="block text-blue-200 mb-2">Amount</label>
             <input

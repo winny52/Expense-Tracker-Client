@@ -2,8 +2,7 @@ import Expense from "./expense";
 import { useState, useEffect } from "react";
 import Chart from "./chart";
 
-function Expenses({ user }) {
-  const [expenses, setExpenses] = useState([]);
+function Expenses({ user,expenses,setExpenses }) {
   const [transportSum, setTransportSum] = useState(0);
   const [foodSum, setFoodSum] = useState(0);
   const [billSum, setBillSum] = useState(0);
@@ -28,6 +27,7 @@ function Expenses({ user }) {
           (expense) =>
             expense.category === "Transportation" &&
             new Date(expense.date) >= currentWeekStart
+            
         );
         const sumTransport = transportExpenses.reduce((accumulator, currentValue) => {
           return accumulator + parseFloat(currentValue.amount);
@@ -76,7 +76,8 @@ function Expenses({ user }) {
         setShoppingSum(sumShopping);
         setEntertainmentSum(sumEntertainment);
       });
-  }, [user]);
+      
+  }, [user,setExpenses]);
 
   return (
     <div className="flex justify-between">
