@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 function ExpenseForm({ addExpense,user }) {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     amount: '',
@@ -32,6 +36,7 @@ function ExpenseForm({ addExpense,user }) {
       date: '',
       category: '',
     });
+    navigate('/homepage');
   };
 
   return (
@@ -74,16 +79,25 @@ function ExpenseForm({ addExpense,user }) {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="category" className="block text-blue-200 mb-2">Category</label>
-            <input
-              type="text"
-              id="category"
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              className="w-full p-2 border rounded bg-blue-200 text-blue-800"
-            />
-          </div>
+  <label htmlFor="category" className="block text-blue-200 mb-2">
+    Category
+  </label>
+  <select
+    id="category"
+    name="category"
+    value={formData.category}
+    onChange={handleChange}
+    className="w-full p-2 border rounded bg-blue-200 text-blue-800"
+  >
+    <option value="">Select a category</option>
+    <option value="Transportation">Transportation</option>
+    <option value="Food">Food</option>
+    <option value="Bill">Bill</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Entertainment">Entertainment</option>
+  </select>
+</div>
+
           <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
             Add Expense
           </button>

@@ -88,7 +88,7 @@ function Expenses({ user,expenses,setExpenses }) {
         shopping={shoppingSum}
         bill={billSum}
       />
-      <div className="ml-32 ">
+      <div className="ml-32 h-3/4 overflow-y-scroll">
         {expenses.map((expense) => (
           <Expense key={expense.id} expense={expense} />
         ))}
