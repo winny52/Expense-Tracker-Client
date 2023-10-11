@@ -26,7 +26,7 @@ function Analyse({ user }) {
   const [entertainmentSum, setEntertainmentSum] = useState(0);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/${user}/expenses`)
+    fetch(`https://expense-tracker-7yjh.onrender.com//${user}/expenses`)
       .then((resp) => resp.json())
       .then((data) => {
         if (Array.isArray(data)) {

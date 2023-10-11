@@ -10,7 +10,7 @@ function Menu({removeToken}) {
 
         axios({
             method: "POST",
-            url:"http://localhost:5000/logout",
+            url:"https://expense-tracker-7yjh.onrender.com//logout",
         })
         .then((response) => {
             removeToken();

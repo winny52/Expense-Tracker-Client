@@ -23,7 +23,7 @@ function Login({ setToken,setUser }) {
 
     axios({
       method: 'POST',
-      url: 'http://localhost:5000/login',
+      url: 'https://expense-tracker-7yjh.onrender.com//login',
       data: {
         email: loginForm.email,
         password: loginForm.password,
@@ -37,7 +37,7 @@ function Login({ setToken,setUser }) {
 
         // After successful login, fetch user information
         axios
-          .get(`http://localhost:5000/profile/${loginForm.email}`, {
+          .get(`https://expense-tracker-7yjh.onrender.com//profile/${loginForm.email}`, {
             headers: {
               Authorization: `Bearer ${access_token}`,
             },

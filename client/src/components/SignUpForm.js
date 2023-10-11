@@ -23,7 +23,7 @@ function Signup() {
     } function handleSubmit(e){
         axios({
             method: "POST",
-            url:"http://localhost:5000/signup",
+            url:"https://expense-tracker-7yjh.onrender.com//signup",
             data:{
                 username:signupForm.username,
                 email:signupForm.email,
